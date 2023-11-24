@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Mode } from './core/model/theme-toggle-model';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'MovieQuest';
+  
+  constructor() {
+   
+    
+  }
 }
