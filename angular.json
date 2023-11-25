@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "MovieQuest:build:production"
+              "buildTarget": "MovieQuest:build:production"
             },
             "development": {
-              "browserTarget": "MovieQuest:build:development"
+              "buildTarget": "MovieQuest:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MovieQuest:build"
+            "buildTarget": "MovieQuest:build"
           }
         },
         "test": {

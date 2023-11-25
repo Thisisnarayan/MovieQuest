@@ -1,15 +1,12 @@
 .close-menu,
 .open-menu {
-  position: absolute;
+  // position: absolute;
   cursor: pointer;
   display: none;
+  
 }
 
-.open-menu {
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-}
+
 
 .close-menu {
   top: 20px;
@@ -48,10 +45,13 @@
 
   .close-menu,
   .open-menu {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #check:checked ~ .menu {
     right: 0;
   }
 }
+

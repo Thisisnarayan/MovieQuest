@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
 // Import Tailwind base styles
 @import 'tailwindcss/base';
 
@@ -10,6 +10,7 @@
 // Import Tailwind utility styles
 @import 'tailwindcss/utilities';
 @import "./css/base";
+@import "./css/common";
 
 
 
@@ -40,3 +41,4 @@ main {
   background-color: var(--bgColor);
   color: var(--textColor);
 }
+

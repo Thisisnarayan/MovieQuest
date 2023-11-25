@@ -1,17 +1,24 @@
-$bgColor_light: white;
-$bgColor_dark: black;
+$bgColor_light: #F7F8F9;
+$bgColor_dark: #101214;
 
-$textColor_light: black;
-$textColor_dark: white;
+$textColor_light: #101214;
+$textColor_dark: #FFFFFF;
 
-$borderColor_light: black;
-$borderColor_dark: white;
+$borderColor_light: #172B4D;
+$borderColor_dark: #C7D1DB;
 
+$cardBackgroundLight : #F1F2F4;
+$cardBackgroundDark : #22272B;
+
+$buttonHoverLight : #B3B9C4;
+$buttonHoverDark:#454F59;
 // mixin that enables css variables in light mode
 @mixin lighten() {
   --bgColor: #{$bgColor_light};
   --textColor: #{$textColor_light};
   --borderColor: #{$borderColor_light};
+  --cardColor : #{$cardBackgroundLight};
+  --buttonhover : #{$buttonHoverLight};
 }
 
 // mixin that enables css variables in dark mode
@@ -19,4 +26,6 @@ $borderColor_dark: white;
   --bgColor: #{$bgColor_dark};
   --textColor: #{$textColor_dark};
   --borderColor: #{$borderColor_dark};
+  --cardColor: #{$cardBackgroundDark};
+  --buttonhover : #{$buttonHoverDark};
 }
