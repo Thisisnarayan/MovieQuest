@@ -8,8 +8,13 @@
   
         <span class="menu flex [&>li]:pl-8 [&>li>a]:text-center [&>li>a]:relative [&>li>a]:transition [&>li>a]:duration-200 [&>li>a]:ease-in-out [&>li>a]:font-medium [&>li>a]:text-lg">
     
-          <li><a href="#" (click)="toggleTheme()">theme</a></li>
-  
+          <!-- <li><a href="#" (click)="toggleTheme()">theme</a></li> -->
+          <li>
+          <button (click)="toggleTheme()" class="flex items-center justify-center w-10 h-10  rounded-full focus:outline-none ">
+            <div *ngIf="currentTheme == Mode.DARK">Dark</div>
+            <div *ngIf="currentTheme == Mode.LIGHT">Light</div>
+          </button>
+          </li>
           <label for="check" class="close-menu">X</label>
         </span>
   

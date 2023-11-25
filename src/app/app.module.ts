@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ThemeModule } from './core/modules/theme/theme.module';
 import { NavbarComponent } from './common/component/navbar/navbar.component';
+import { MovieCardComponent } from './common/component/movie-card/movie-card.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
   ],
   imports: [
     BrowserModule,
