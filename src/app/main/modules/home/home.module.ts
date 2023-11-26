@@ -6,6 +6,7 @@ import { HomePageComponent } from './component/home-page/home-page.component';
 import { NavbarComponent } from 'src/app/common/component/navbar/navbar.component';
 import { SearchComponent } from "../../../common/component/search/search.component";
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MovieCardComponent } from 'src/app/common/component/movie-card/movie-card.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
         CommonModule,
         HomeRoutingModule,
         SearchComponent,
+        MovieCardComponent,
         NgCircleProgressModule.forRoot(),
     ]
 })

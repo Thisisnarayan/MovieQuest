@@ -57,16 +57,25 @@ export class SearchComponent {
     return `https://image.tmdb.org/t/p/original${posterPath}`;
   }
 
-  getColor(v : number){
-    if(v > 80) {
-      return '#22A06B';
-    } else if(v < 80 && v > 60){
-      return '#E56910';
-    } else if(v < 60 && v > 30) {
-      return '#7F5F01';
+  getColor(v: number): string {
+    if (v >= 80) {
+      return '#22A06B'; 
+    } else if (v >= 70) {
+      return '#4CAF50'; 
+    } else if (v >= 60) {
+      return '#8BC34A'; 
+    } else if (v >= 50) {
+      return '#CDDC39'; 
+    } else if (v >= 40) {
+      return '#FFEB3B'; 
+    } else if (v >= 30) {
+      return '#FFC107'; 
+    } else if (v >= 20) {
+      return '#FF9800';
+    } else if (v >= 10) {
+      return '#FF5722'; 
     } else {
-      return '#AE2E24';
+      return '#F44336'; 
     }
-    return '#216E4E';
   }
 }

@@ -16,9 +16,17 @@
 
 html,
 body {
-  font-family: "Space Mono", monospace;
-  margin: 0;
-  padding: 0;
+  margin: 0; /* Reset default margin */
+  display: flex;
+  min-height: 100vh; /* Ensure body fills the viewport height */
+  flex-direction: column;
+  background-color: var(--bgColor);
+  color: var(--textColor);
+}
+
+main {
+  flex: 1; /* Allow main content to grow and take remaining height */
+  overflow-y: auto; /* Enable vertical scrolling for main content */
 }
 
 body.dark {
@@ -32,13 +40,11 @@ button {
   font-family: "Space Mono", monospace;
 }
 
-main {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: var(--bgColor);
-  color: var(--textColor);
-}
+// main {
+//   display: flex;
+//   height: 100vh;
+//   flex-direction: column;
+//   background-color: var(--bgColor);
+//   color: var(--textColor);
+// }
 

@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/interceptor/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./main/modules/home/home.module').then(m => m.HomeModule)
   },
-  // {
-  //   path: 'detail',
-  //   loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)
-  // },
+  {
+    path: 'details',
+    loadChildren: () => import('./main/modules/details/details.module').then(m => m.DetailsModule),
+  },
+  {
+    path: 'watchlist',
+    loadChildren: () => import('./main/modules/watchlist/watchlist.module').then(m => m.WatchlistModule),
+    canActivate: [AuthGuard], 
+  },
   {
     path: '',
     redirectTo: '/home',

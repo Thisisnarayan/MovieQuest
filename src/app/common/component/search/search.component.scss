@@ -16,7 +16,7 @@
 
 .result-drop {
   border: 1px solid var(--borderColor);
-
+  background-color: var(--bgColor);
   max-height: 75vh;
   overflow: scroll;
 }
@@ -28,4 +28,8 @@
 .input-simple:focus {
   outline: none;
   border: 1px solid var(--focusColor);
+}
+
+backgroud-c {
+  background-color: var(--bgColor);
 }

@@ -47,4 +47,22 @@ export class ApiService {
 
     return this.http.get<any>(`${this.baseUrl}/search/movie`, { params });
   }
+
+  popularMovies(): Observable<any> {
+    const params = new HttpParams()
+      .set('api_key', environment.api_key)
+      .set('language', 'en-US');
+
+    return this.http.get<any>(`${this.baseUrl}/movie/popular`, { params });
+  }
+
+  topRatedMovies(): Observable<any> {
+    const params = new HttpParams()
+      .set('api_key', environment.api_key)
+      .set('language', 'en-US');
+
+    return this.http.get<any>(`${this.baseUrl}/movie/top_rated`, { params });
+  }
+
+
 }

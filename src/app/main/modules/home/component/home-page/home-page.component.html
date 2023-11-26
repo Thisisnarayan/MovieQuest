@@ -1,4 +1,44 @@
-<div class="container mx-auto">
+<div >
     <app-navbar></app-navbar>
-  
+    <div class="mt-28 container mx-auto">
+        <div class="text-xl font-bold pl-5 pb-5">What's Popular</div>
+        <div class="overflow-x-auto whitespace-nowrap">
+          <div class="flex flex-row">
+            <!-- Your ngFor loop here -->
+            <!-- ... -->
+            <ng-container *ngIf="isLoading">
+              <ng-container *ngFor="let movie of [1,2,3,4,5,6,7,8,9]">
+                <app-movie-card [loading]="isLoading" [data]="movie"></app-movie-card>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!isLoading">
+              <ng-container *ngFor="let movie of movieData">
+                <app-movie-card [loading]="isLoading" [data]="movie"></app-movie-card>
+              </ng-container>
+            </ng-container>
+            <!-- ... -->
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 container mx-auto">
+        <div class="text-xl font-bold pl-5 pb-5">Top Rated</div>
+        <div class="overflow-x-auto whitespace-nowrap">
+          <div class="flex flex-row">
+            <!-- Your ngFor loop here -->
+            <!-- ... -->
+            <ng-container *ngIf="isLoading">
+              <ng-container *ngFor="let movie of [1,2,3,4,5,6,7,8,9]">
+                <app-movie-card [loading]="isLoading" [data]="movie"></app-movie-card>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!isLoading">
+              <ng-container *ngFor="let movie of movieDataTopRated">
+                <app-movie-card [loading]="isLoading" [data]="movie"></app-movie-card>
+              </ng-container>
+            </ng-container>
+            <!-- ... -->
+          </div>
+        </div>
+      </div>
+   
 </div>
