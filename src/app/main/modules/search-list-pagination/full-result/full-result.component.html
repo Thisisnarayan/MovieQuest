@@ -1,0 +1,12 @@
+<div class="flex flex-col">
+    <div class="flex-container">
+        <ng-container *ngFor="let movie of data">
+          <app-movie-card [loading]="isLoading" [data]="movie"></app-movie-card>
+        </ng-container>
+      </div>
+    <app-movie-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="loadData($event)"
+  ></app-movie-pagination>
+</div>

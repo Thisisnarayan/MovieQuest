@@ -1,6 +1,6 @@
 @if (!loading) {
 <section class="text-gray-700 body-font">
-  <div class="flex container px-5 mx-auto">
+  <div class="flex container px-5 mx-auto" (click)="detailPage(data.id)">
     <!-- Repeat this card structure for each movie in the list -->
     <div class="w-40" style="cursor: pointer;">
       <div class="relative">
@@ -13,8 +13,8 @@
         >
           <!-- Movie details -->
           <div class=" text-center">
-            <h3 class="font-medium text-sm text-m">{{data.title}}</h3>
-            <p class="text-xs text-m mt-2">{{ data.release_date | date : "MMMM d, y" }}</p>
+            <h3 class="font-medium text-sm  text-slate-200">{{data.title}}</h3>
+            <p class="text-xs mb-3 mt-2  text-slate-200">{{ data.release_date | date : "MMMM d, y" }}</p>
           </div>
 
           <div class="rating">

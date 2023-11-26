@@ -73,5 +73,11 @@
         </div>
       </div>
     </div>
+    @if(searchTerm.length > 0 && totalPages! > 1){
+      <div class="bg-color px-4 py-2 border-t bottom-0 w-full  cursor-pointer" (click)="navigateToListPagination()">
+        <div>See all results for "{{searchTerm}}"</div>
+      </div>
+    }
+    
   </div>
 </div>

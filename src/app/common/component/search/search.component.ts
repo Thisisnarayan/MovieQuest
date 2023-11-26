@@ -3,6 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { ApiService } from 'src/app/main/services/api.service';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -15,23 +16,28 @@ export class SearchComponent {
   showDropdown: boolean = false;
   searchResults: any[] = []; // Array to hold search results
   isLoading = false;
-  constructor(private apiService : ApiService) {
+  searchTerm  = '';
+  totalPages = null;
+  constructor(private apiService : ApiService,
+    private router: Router) {
 
   }
   onSearch(event: any) {
-    const searchTerm = event.target.value;
+    this.searchTerm = event.target.value;
     this.isLoading = true;
     // Example: Perform a search (You can replace this with actual search logic)
-    if (searchTerm.length > 0) {
+    if (this.searchTerm!.length > 0) {
       // Simulated search results (Replace this with your search logic)
       this.searchResults = [];
+      this.apiService.setSearchTerm(this.searchTerm);
       this.apiService
-      .searchMovies(searchTerm)
+      .searchMovies(this.searchTerm , 1)
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
         switchMap((response : any) => {
           this.isLoading = false;
+          this.totalPages = response.total_pages;
           return response.results; // Assuming the API response has a 'results' property for movies
         })
       )
@@ -77,5 +83,10 @@ export class SearchComponent {
     } else {
       return '#F44336'; 
     }
+  }
+
+  navigateToListPagination() {
+    this.apiService.setPaginationDetails( this.totalPages!)
+    this.router.navigateByUrl('/search-full');
   }
 }

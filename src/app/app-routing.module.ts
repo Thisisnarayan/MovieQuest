@@ -8,8 +8,12 @@ const routes: Routes = [
     loadChildren: () => import('./main/modules/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'details',
+    path: 'details/:id',
     loadChildren: () => import('./main/modules/details/details.module').then(m => m.DetailsModule),
+  },
+  {
+    path: 'search-full',
+    loadChildren: () => import('./main/modules/search-list-pagination/search-list-pagination.module').then(m => m.SearchListPaginationModule),
   },
   {
     path: 'watchlist',

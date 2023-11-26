@@ -40,5 +40,25 @@
           </div>
         </div>
       </div>
+      <div class="mt-8 container mx-auto">
+        <div class="text-xl font-bold pl-5 pb-5">Upcoming</div>
+        <div class="overflow-x-auto whitespace-nowrap">
+          <div class="flex flex-row">
+            <!-- Your ngFor loop here -->
+            <!-- ... -->
+            <ng-container *ngIf="isLoading">
+              <ng-container *ngFor="let movie of [1,2,3,4,5,6,7,8,9]">
+                <app-movie-card [loading]="isLoading" [data]="movie"></app-movie-card>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!isLoading">
+              <ng-container *ngFor="let movie of movieDataUpcoming">
+                <app-movie-card [loading]="isLoading" [data]="movie"></app-movie-card>
+              </ng-container>
+            </ng-container>
+            <!-- ... -->
+          </div>
+        </div>
+      </div>
    
 </div>

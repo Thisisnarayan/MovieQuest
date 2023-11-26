@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @Component({
@@ -13,7 +14,9 @@ export class MovieCardComponent {
   @Input() loading: boolean = true; // Input for loading state
   @Input() data: any; // Input for movie data
 
+  constructor(private router: Router) {
 
+  }
   getColor(v: number): string {
     if (v >= 80) {
       return '#22A06B'; 
@@ -34,5 +37,8 @@ export class MovieCardComponent {
     } else {
       return '#F44336'; 
     }
+  }
+  detailPage(id:string) {
+    this.router.navigateByUrl(`/details/${id}`)
   }
 }

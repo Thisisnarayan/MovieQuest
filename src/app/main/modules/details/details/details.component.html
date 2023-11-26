@@ -1,1 +1,26 @@
-<p>details works!</p>
+
+  
+  <div class="movie_card" id="tomb" *ngIf="data != undefined">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="locandina" [src]="getFullPosterPath(data.poster_path)"/>
+        <h1></h1>
+        <h4>{{data.release_date | date : "yyyy"}}, {{data.original_title}}</h4>
+        <!-- <span class="minutes">125 min</span> -->
+        <div class="type">
+            <div class="flex flex-row">
+                <div class="text-sm ml-2" *ngFor="let r of data.genres">
+                {{r.name}}
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="movie_desc">
+        <p class="text">
+         {{data.overview}}
+        </p>
+      </div>
+
+    </div>
+    <div  [style.backgroundImage]="'url(https://image.tmdb.org/t/p/original' + data.backdrop_path + ')'" style="background-size: cover;"  class="blur_back tomb_back"></div>
+  </div>

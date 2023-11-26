@@ -1,0 +1,63 @@
+<div class="flex justify-center mt-4">
+    <nav aria-label="Pagination">
+      <ul class="flex">
+        <li>
+          <button
+            class="px-3 py-1 border border-gray-300 rounded-l"
+            [disabled]="currentPage === 1"
+            (click)="previousPage()"
+          >
+            Previous
+          </button>
+        </li>
+  
+        <li *ngIf="currentPage > 1">
+          <button
+            class="px-3 py-1 border border-gray-300"
+            (click)="goToPage(1)"
+          >
+            1
+          </button>
+        </li>
+  
+        <li *ngIf="currentPage > 3">
+          <span>...</span>
+        </li>
+  
+        <ng-container *ngFor="let page of getVisiblePages()">
+          <li>
+            <button
+              class="px-3 py-1 border border-gray-300"
+              [class.active]="currentPage === page"
+              (click)="goToPage(page)"
+            >
+              {{ page }}
+            </button>
+          </li>
+        </ng-container>
+  
+        <li *ngIf="currentPage < totalPages - 2">
+          <span>...</span>
+        </li>
+  
+        <li *ngIf="currentPage < totalPages">
+          <button
+            class="px-3 py-1 border border-gray-300"
+            (click)="goToPage(totalPages)"
+          >
+            {{ totalPages }}
+          </button>
+        </li>
+  
+        <li>
+          <button
+            class="px-3 py-1 border border-gray-300 rounded-r"
+            [disabled]="currentPage === totalPages"
+            (click)="nextPage()"
+          >
+            Next
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>

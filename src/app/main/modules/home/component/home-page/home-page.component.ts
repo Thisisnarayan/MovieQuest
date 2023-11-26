@@ -11,6 +11,7 @@ export class HomePageComponent implements OnInit {
   isLoading = true;
   movieData : any[]= []
   movieDataTopRated : any[] = [];
+  movieDataUpcoming : any[] = [];
   constructor(private apiService : ApiService){
     
   }
@@ -26,14 +27,18 @@ export class HomePageComponent implements OnInit {
           this.movieData = popularResults.results;
           return this.apiService.topRatedMovies();
         }),
+        concatMap((topRatedResults: any) => {
+          this.movieDataTopRated = topRatedResults.results;
+          return this.apiService.upcomingMovies();
+        }),
         finalize(() => {
           
           this.isLoading = false;
         })
       )
       .subscribe(
-        (nowPlayingResults: any) => {
-          this.movieDataTopRated = nowPlayingResults.results;
+        (upcomingResults: any) => {
+          this.movieDataUpcoming = upcomingResults.results;
         },
         (error: any) => {
           console.error('Error fetching movie results:', error);
