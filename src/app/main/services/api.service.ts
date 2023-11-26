@@ -51,6 +51,31 @@ export class ApiService {
         })
       );
   }
+
+  checkSession(token: string ): Observable<any> {
+    const body = {
+      token
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
+    return this.http.post<any>(this.apiUrl+'/api/session', body, httpOptions)
+      .pipe(
+        map(response => {
+          // Handle successful login responses here if needed
+          return response;
+        }),
+        catchError(error => {
+          // Handle errors here or throw the error to the component
+          return throwError(error);
+        })
+      );
+  }
+
   baseUrl = "https://api.themoviedb.org/3";
 //https://api.themoviedb.org/3/search/movie?query=killing&include_adult=false&language=en-US&page=1
   searchMovies(query: string , page : number): Observable<any> {

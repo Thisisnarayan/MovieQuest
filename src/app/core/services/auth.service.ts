@@ -14,4 +14,12 @@ export class AuthService {
   isLoggedIn(){
     return this.loggedIn;
   }
+
+  savetoken(value : string) {
+    localStorage.setItem('token',value);
+  }
+
+  getToken() {
+    return  localStorage.getItem('token');
+  }
 }

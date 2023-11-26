@@ -21,6 +21,9 @@ import { MovieCardComponent } from 'src/app/common/component/movie-card/movie-ca
         SearchComponent,
         MovieCardComponent,
         NgCircleProgressModule.forRoot(),
+    ],
+    exports : [
+        NavbarComponent
     ]
 })
 export class HomeModule { }

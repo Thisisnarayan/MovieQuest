@@ -89,4 +89,9 @@ export class SearchComponent {
     this.apiService.setPaginationDetails( this.totalPages!)
     this.router.navigateByUrl('/search-full');
   }
+
+  detailPage(id:string) {
+    this.showDropdown = false;
+    this.router.navigateByUrl(`/details/${id}`)
+  }
 }

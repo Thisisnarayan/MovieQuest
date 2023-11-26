@@ -25,19 +25,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-exports.addmessage = onRequest(async (req, res) => {
-    // Grab the text parameter.
-   
-    const original = req.query;
-    // Push the new message into Firestore using the Firebase Admin SDK.
-    console.log(original);
-    const writeResult = await getFirestore()
-        .collection("messages")
-        .add({original: original});
-    // Send back a message that we've successfully written the message
-    res.json({result: `Message with ID: ${writeResult.id} added.`});
-  });
-
   app.use('/api', router);
+  
   exports.mvdb = onRequest(app);

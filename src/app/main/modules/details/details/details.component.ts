@@ -5,8 +5,7 @@ import { ApiService } from 'src/app/main/services/api.service';
 
 @Component({
   selector: 'app-details',
-  standalone: true,
-  imports: [CommonModule],
+ 
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
