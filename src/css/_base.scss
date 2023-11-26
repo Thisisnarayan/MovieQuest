@@ -12,6 +12,11 @@ $cardBackgroundDark : #22272B;
 
 $buttonHoverLight : #B3B9C4;
 $buttonHoverDark:#454F59;
+
+$focusLight : #DCDFE4;
+$focusDark : #2C333A;
+
+
 // mixin that enables css variables in light mode
 @mixin lighten() {
   --bgColor: #{$bgColor_light};
@@ -19,6 +24,7 @@ $buttonHoverDark:#454F59;
   --borderColor: #{$borderColor_light};
   --cardColor : #{$cardBackgroundLight};
   --buttonhover : #{$buttonHoverLight};
+  --focusColor: #{$focusLight};
 }
 
 // mixin that enables css variables in dark mode
@@ -28,4 +34,5 @@ $buttonHoverDark:#454F59;
   --borderColor: #{$borderColor_dark};
   --cardColor: #{$cardBackgroundDark};
   --buttonhover : #{$buttonHoverDark};
+  --focusColor: #{$focusDark};
 }

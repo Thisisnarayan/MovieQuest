@@ -24,34 +24,29 @@
               <app-search></app-search>
           </div>
         </div>
-        <!-- <div class="relative pointer-events-auto">
-          <div class="flex justify-between items-center py-4 px-6 ">
-            <div class="flex items-center space-x-4">
-               
-                <button class="flex items-center justify-center bg-blue-500 text-white rounded-full h-10 w-10 focus:outline-none">
-                   
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                    </svg>
-                </button>
-              
-                <h1 class="text-xl font-semibold">Title</h1>
-            </div>
-           
-            <div class="flex items-center justify-center flex-1 mx-4">
-                <input type="text" placeholder="Search..." class="px-4 py-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500">
-            </div>
+        <div class="flex flex-row">
+          <button class="flex flex-row items-center sm:hidden md:flex lg:flex xl:flex 2xl:flex">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="ipc-icon ipc-icon--watchlist ipc-btn__icon ipc-btn__icon--pre" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M17 3c1.05 0 1.918.82 1.994 1.851L19 5v16l-7-3-7 3V5c0-1.05.82-1.918 1.851-1.994L7 3h10zm-4 4h-2v3H8v2h3v3h2v-3h3v-2h-3V7z" fill="currentColor"></path></svg>
+            <div class="font-normal text-sm">Watchlist</div>
+          </button>
+            
+         
+          <button class="sm:w-full md:w-32 lg:w-32 sm:pt-1 sm:pb-1 flex justify-center items-center sm:border-t-1 sm:border-b-1" (click)="openGoogleSignin()">
+            <div class="font-normal text-sm">Sign in</div>
+          </button>
         </div>
-        
-        </div> -->
+       
         <span
-          class="menu flex [&>li]:pl-8 [&>li>a]:text-center [&>li>a]:relative [&>li>a]:transition [&>li>a]:duration-200 [&>li>a]:ease-in-out [&>li>a]:font-medium [&>li>a]:text-lg"
+          class="menu sm:component-shadow flex [&>li]:pl-8 [&>li>a]:text-center [&>li>a]:relative [&>li>a]:transition [&>li>a]:duration-200 [&>li>a]:ease-in-out [&>li>a]:font-medium [&>li>a]:text-lg"
         >
           <!-- <li><a href="#" (click)="toggleTheme()">theme</a></li> -->
-          <li>
+          <label for="check" class="close-menu">X</label>
+            
+          
+         
             <button
               (click)="toggleTheme()"
-              class="flex items-center justify-center w-10 h-10 rounded-full focus:outline-none"
+              class="sm:w-full  pt-1 pb-1 flex items-center justify-center  h-10  focus:outline-none sm:border-b-1 md:border-none lg:border-none"
             >
               @if (currentTheme == Mode.DARK) {
               <div>
@@ -85,8 +80,12 @@
               </div>
               }
             </button>
-          </li>
-          <label for="check" class="close-menu">X</label>
+          
+            <button class="flex flex-row items-center sm:flex md:hidden lg:hidden xl:hidden 2xl:hidden">
+              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="ipc-icon ipc-icon--watchlist ipc-btn__icon ipc-btn__icon--pre" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M17 3c1.05 0 1.918.82 1.994 1.851L19 5v16l-7-3-7 3V5c0-1.05.82-1.918 1.851-1.994L7 3h10zm-4 4h-2v3H8v2h3v3h2v-3h3v-2h-3V7z" fill="currentColor"></path></svg>
+              <div class="font-normal text-sm">Watchlist</div>
+            </button>
+         
         </span>
        
          <div class="flex flex-row">

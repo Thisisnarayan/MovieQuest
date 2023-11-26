@@ -1,10 +1,77 @@
 <div class="relative">
-    <div class="constraint">
-        <input class="input-simple" type="text" placeholder="Search" (input)="onSearch($event)">
+  <div class="constraint">
+    <input
+      class="input-simple"
+      type="text"
+      placeholder="Search"
+      (input)="onSearch($event)"
+    />
+  </div>
+  <div
+    class="absolute inset-y-0 right-0 flex items-center pr-3"
+    *ngIf="isLoading"
+  >
+    <svg
+      class="animate-spin h-5 w-5 text-gray-500"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        class="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      ></circle>
+      <path
+        class="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.96 7.96 0 014 12H0c0 4.418 3.582 8 8 8v-4.001zm16-2.582A7.96 7.96 0 0120 12h4c0 4.418-3.582 8-8 8v-4.001zM20 3.709V7.71A7.96 7.96 0 0123.999 12h-4c0-4.418-3.582-8-8-8v4.001h4.001z"
+      ></path>
+    </svg>
+  </div>
+  <!-- Dropdown for search results -->
+  <div
+    *ngIf="showDropdown && searchResults.length > 0"
+    class="absolute z-10 mt-2 w-full shadow-lg result-drop"
+  >
+    <div *ngFor="let result of searchResults" class="px-4 py-2">
+      <div class="flex flex-row">
+        <div style="height: 50px;width: 50px;;">
+          <img
+            [src]="getFullPosterPath(result.poster_path)"
+            width="50"
+            height="50"
+          />
+        </div>
+        <div class="flex ml-2 flex-col">
+          <div class="text-sm font-medium truncate">{{ result.title }}</div>
+          <div class="flex flex-row items-center ">
+            <div class="text-sm font-medium">
+                {{ result.release_date | date : "yyyy" }}
+              </div>
+              <circle-progress class="ml-5"
+              [percent]="result.vote_average * 10"
+              [radius]="20"
+              [titleColor]="'#B3B9C4'"
+              [titleFontSize]="'10'"
+              [showSubtitle]="false"
+              [showUnits]="false"
+              [outerStrokeWidth]="4"
+              [innerStrokeWidth]="2"
+              [outerStrokeColor]="getColor(result.vote_average * 10)"
+              [innerStrokeColor]="'#C7E596'"
+              [animation]="true"
+              [animationDuration]="300"
+            ></circle-progress>
+          </div>
+          
+
+        
+        </div>
+      </div>
     </div>
-   
-    <!-- Dropdown for search results -->
-    <div *ngIf="showDropdown && searchResults.length > 0" class="absolute z-10 mt-2 w-full border border-gray-500 rounded-md shadow-lg">
-        <div *ngFor="let result of searchResults" class="px-4 py-2">{{ result }}</div>
-    </div>
+  </div>
 </div>
